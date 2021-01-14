@@ -1,0 +1,60 @@
+
+
+.back-img{
+    height: 100%;
+    max-height: 950px;
+    position:sticky;
+    object-fit: cover;
+}
+
+.overlay-dark {
+    background-color: rgba(black, 0.4);
+}
+
+.carousel-caption{
+    width:100%;
+    right:0;
+    left:0;
+}
+.register{
+    color:gold ;
+    font-size: 2rem;
+    border-radius: 1rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    background-color: purple;
+    border: none;
+}
+
+.navbar{
+    opacity: 0.9;
+    border-radius: 1rem;
+    width: 100%;
+}
+
+.navbar-nav{
+    opacity: 1;
+    
+}
+
+.nav-link{
+    color:white !important;
+    font-size: 2rem;
+    font-family: 'Dancing Script';
+    font-weight: 500;
+}
+
+#welcome-brand{
+    font-family: 'Satisfy';
+    top:0; 
+    bottom:auto;
+}
+
+#main-heading{
+    margin-top: 2rem;
+    font-size: 4rem;
+}
+
+.icon-images{
+    border-radius: 50%;
+}
