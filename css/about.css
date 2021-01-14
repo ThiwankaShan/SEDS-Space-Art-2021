@@ -1,0 +1,43 @@
+.about{
+    width:100%;
+    background-color: rgb(219, 219, 219);
+    padding:5rem 2rem 2rem 2rem;
+}
+
+.row-image{
+    width:100%;
+    object-fit:contain;
+    margin:0;
+}
+
+.column-1{
+    background-color: purple;
+    color: white;
+    height:100%;
+    margin:0;
+}
+
+.column-2{
+    background-color: #3f51b5;
+    color: white;
+    height:100%;
+    margin:0;
+}
+
+.column-3{
+    background-color: white;
+    color: black;
+    height:100%;
+    margin:0;
+}
+
+.row-1{
+    background-color: #3f51b5;
+    color: white;
+    margin:0;
+}
+
+.box{
+    padding:1rem;
+    margin:0;
+}
