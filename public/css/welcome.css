@@ -1,14 +1,8 @@
-
-
 .back-img{
     height: 100%;
     max-height: 950px;
     position:sticky;
     object-fit: cover;
-}
-
-.overlay-dark {
-    background-color: rgba(black, 0.4);
 }
 
 .carousel-caption{
@@ -28,13 +22,11 @@
 
 .navbar{
     opacity: 0.9;
-    border-radius: 1rem;
     width: 100%;
 }
 
 .navbar-nav{
-    opacity: 1;
-    
+    opacity: 1;  
 }
 
 .nav-link{
@@ -45,6 +37,7 @@
 }
 
 #welcome-brand{
+    
     font-family: 'Satisfy';
     top:0; 
     bottom:auto;
