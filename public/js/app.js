@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", event => {
     const db = firebase.firestore();
     const storage = firebase.storage();
 
-    const form = document.querySelector("submissionForm");
+    const form = document.querySelector("#submissionForm");
 
     // form fields
     const email = document.querySelector("#email");
@@ -25,35 +25,26 @@ document.addEventListener("DOMContentLoaded", event => {
     var fileValue;
     var imgUrl;
 
-    form.validate({
-        rules:{
-            email:{
-                required:true,
-                email:true,
-            }
+    pristine = new Pristine(form);
+
+    pristine.addValidator(file, function() {
+        if (file.files[0].size<10000000){
+            return true;
         }
-    })
+        return false;
+    }, "File size must be bellow 10MB", 2, false);
 
-    nextButton.addEventListener("click", function () {
+    nextButton.addEventListener('click', function () {
+        var valid = pristine.validate();
 
-        if(form.valid()){
-            console.log('form valid');
-        }else{
-            console.log('form invalid');
+        if (valid) {
+            emailValue = email.value;
+            fileValue = file.files[0];
+            toggleForm();
         }
-        
-    })
 
+    });
 
-    /*
-    nextButton.addEventListener("click", function () {
-
-        emailValue = email.value;
-        fileValue = file.files[0];
-        toggleForm();
-
-    })
-    */
     editButton.addEventListener("click", function () {
 
         toggleForm();
@@ -100,7 +91,7 @@ document.addEventListener("DOMContentLoaded", event => {
                     storeDetails();
                     window.location.href = "success.html";
                 });
-                
+
             }
 
         );
