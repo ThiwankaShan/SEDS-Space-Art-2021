@@ -1,16 +1,22 @@
 .back-img{
-    height: 100%;
-    max-height: 950px;
+    min-height: 500px !important;
+    max-height: 950px !important;
     position:sticky;
     object-fit: cover;
 }
 
-.carousel-caption{
-    width:100%;
-    right:0;
-    left:0;
+.card-img-overlay{
+    margin:0 !important;
+    padding: 0 !important;
+}
+
+#welcome-card{
+    width:100% !important;
+    margin:0 !important;
+    padding: 0 !important;
 }
 .register{
+    margin-bottom: 10% !important;
     color:gold ;
     font-size: 2rem;
     border-radius: 1rem;
@@ -23,11 +29,18 @@
 .navbar{
     opacity: 0.9;
     width: 100%;
+    margin:0 !important;
 }
 
-.navbar-nav{
-    opacity: 1;  
+@media (max-width: 991.98px){
+    .navbar-nav{
+        position:absolute;
+        margin:0 !important;
+        background-color: black;
+        width: 97% ;
+    }
 }
+
 
 .nav-link{
     color:white !important;
@@ -36,18 +49,13 @@
     font-weight: 500;
 }
 
-#welcome-brand{
-    
-    font-family: 'Satisfy';
-    top:0; 
-    bottom:auto;
-}
-
 #main-heading{
-    margin-top: 2rem;
+    font-family: 'Satisfy';
+    margin-top: 11rem;
     font-size: 4rem;
 }
 
 .icon-images{
+    margin-top: 1rem;
     border-radius: 50%;
 }

@@ -38,25 +38,46 @@
 <body>
     <div class="container p-5">
         <form class="row g-3" novalidate id="submissionForm" method="POST">
-            <div class="col-md-12 form-group">
+            <div class="col-md-12 form-group required">
                 <label for="inputEmail4" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" data-pristine-maxlength="50" required/>
+                <input type="email" class="form-control" id="email" data-pristine-maxlength="50" placeholder="jsmith@example.com" required />
             </div>
 
-            <div class="col-6 form-group">
-                <label for="inputFirstName" class="form-label">First Name</label>
-                <input type="text" class="form-control" id="inputFirstName" placeholder="Done" data-pristine-maxlength="20" required>
+            <div class="col-6 form-group required">
+                <label for="firstName" class="form-label">First Name</label>
+                <input type="text" class="form-control" id="firstName" placeholder="Jhon"
+                    data-pristine-maxlength="20" required>
             </div>
-            <div class="col-6 form-group">
-                <label for="inputLastName" class="form-label">Last Name</label>
-                <input type="text" class="form-control" id="inputLastName" placeholder="Joe" data-pristine-maxlength="20" required>
+            <div class="col-6 form-group required">
+                <label for="lastName" class="form-label">Last Name</label>
+                <input type="text" class="form-control" id="lastName" placeholder="Doe"
+                    data-pristine-maxlength="20" required>
             </div>
-            <div class="col-md-6 form-group">
+            <div class="col-md-12 form-group required">
                 <label for="inputCity" class="form-label">City</label>
-                <input type="text" class="form-control" id="inputCity" data-pristine-maxlength="20" required>
+                <input type="text" class="form-control" id="inputCity" data-pristine-maxlength="20" placeholder="Colombo" required>
             </div>
-            <div class="col-12 mb-3 form-group">
-                <label for="formFile" class="form-label" >Upload your Art</label>
+
+            <div class="col-md-6 form-group ">
+                <label for="chapter" class="form-label">SEDS Chapter (optional)</label>
+                <input type="text" class="form-control" id="chapter" data-pristine-maxlength="20" value="" placeholder="SEDS Sri Lanka">
+            </div>
+
+            <div class="col-md-6 form-group">
+                <label for="workplace" class="form-label">Orgnaization, School or College (optional)</label>
+                <input type="text" class="form-control" id="workplace" data-pristine-maxlength="20" value="" placeholder="">
+            </div>
+
+            <div class="col-md-6 form-group required">
+                <label for="chapter" class="form-label mb-0">Division</label>
+                <select class="form-select" aria-label="Default select example" id="division" required>
+                    <option value="1">under 10</option>
+                    <option value="2">Age 11-18</option>
+                    <option value="3">Age 19+</option>
+                </select>
+            </div>
+            <div class="col-12 mb-3 form-group required">
+                <label for="formFile" class="form-label">Upload your Art</label>
                 <input class="form-control" type="file" id="file" required>
             </div>
 
@@ -65,10 +86,10 @@
                     role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%"></div>
             </div>
 
-            <div class="col-12 form-group">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="gridCheck">
-                    <label class="form-check-label" for="gridCheck">
+            <div class="col-12 ">
+                <div class="form-check form-group required">
+                    <input class="form-check-input" type="radio" id="agreementCheck">
+                    <label class="form-check-label" for="agreementCheck">
                         I hereby gurentee this work is original
                     </label>
                 </div>
@@ -81,7 +102,7 @@
             </div>
 
             <div class="image-area mt-4"><img id="preview" src="#" alt=""
-                class="img-fluid rounded shadow-sm mx-auto d-block"></div>
+                    class="img-fluid rounded shadow-sm mx-auto d-block"></div>
         </form>
 
 

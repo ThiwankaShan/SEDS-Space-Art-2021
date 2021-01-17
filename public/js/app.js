@@ -11,6 +11,13 @@ document.addEventListener("DOMContentLoaded", event => {
     // form fields
     const email = document.querySelector("#email");
     const file = document.querySelector("#file");
+    const agreement = document.querySelector('#agreementCheck');
+    const firstName = document.querySelector("#firstName");
+    const lastName = document.querySelector("#lastName");
+    const division = document.querySelector("#division");
+    const chapter = document.querySelector("#chapter");
+    const workplace = document.querySelector("#workplace");
+
 
     // form actions
     const imgPreview = document.querySelector("#preview");
@@ -22,24 +29,33 @@ document.addEventListener("DOMContentLoaded", event => {
 
     // form value init
     var emailValue;
-    var fileValue;
+    var firstNameValue;
+    var lastNameValue;
+    var divisionValue;
+    var chapterValue;
+    var workplaceValue;
     var imgUrl;
 
     pristine = new Pristine(form);
 
-    pristine.addValidator(file, function() {
-        if (file.files[0].size<10000000){
+    pristine.addValidator(file, function () {
+        if (file.files[0].size < 10000000) {
             return true;
         }
         return false;
     }, "File size must be bellow 10MB", 2, false);
 
+    pristine.addValidator(agreement, function () {
+
+        if (agreement.checked) {
+            return true;
+        }
+        return false;
+    }, "", 2, false);
+
     nextButton.addEventListener('click', function () {
         var valid = pristine.validate();
-
         if (valid) {
-            emailValue = email.value;
-            fileValue = file.files[0];
             toggleForm();
         }
 
@@ -53,7 +69,14 @@ document.addEventListener("DOMContentLoaded", event => {
     submitButton.addEventListener("click", function () {
 
         progress.hidden = !progress.hidden;
+        emailValue = email.value;
+        firstNameValue = firstName.value;
+        lastNameValue = lastName.value;
+        divisionValue = division.value;
+        chapterValue = chapter.value;
+        workplaceValue = workplace.value;
 
+        window.location.href = "success.html";
         uploadFile();
     })
 
@@ -61,10 +84,16 @@ document.addEventListener("DOMContentLoaded", event => {
 
         db.collection("participants").doc(emailValue).set({
             email: emailValue,
+            firstName: firstNameValue,
+            lastName: lastNameValue,
+            division: divisionValue,
+            chapter: chapterValue,
+            workplace: workplaceValue,
             url: imgUrl.toString(),
         })
             .then(function () {
                 console.log("Document successfully written!");
+                window.location.href = "success.html";
             })
             .catch(function (error) {
                 console.error("Error writing document: ", error);
@@ -73,7 +102,7 @@ document.addEventListener("DOMContentLoaded", event => {
 
     function uploadFile() {
 
-        var task = storage.ref("arts/" + emailValue).put(fileValue);
+        var task = storage.ref("arts/" + emailValue).put(file.files[0]);
 
         task.on('state_changed',
 
@@ -89,7 +118,7 @@ document.addEventListener("DOMContentLoaded", event => {
                 task.snapshot.ref.getDownloadURL().then(function (downloadURL) {
                     imgUrl = downloadURL;
                     storeDetails();
-                    window.location.href = "success.html";
+                    
                 });
 
             }
