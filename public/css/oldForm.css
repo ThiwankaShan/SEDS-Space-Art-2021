@@ -1,0 +1,22 @@
+.text-help {
+    color: red;
+}
+
+.has-danger .form-control {
+    border: 2px solid red;
+}
+
+.has-success .form-control {
+    border-bottom: 2px solid green;
+}
+
+.form-group.required .form-label:after {
+    content:"*";
+    color:red;
+  }
+
+form{
+    max-width: 800px !important;
+    align-self: center;
+    margin: auto !important;
+}

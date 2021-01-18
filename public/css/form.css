@@ -1,3 +1,138 @@
+
+*, body { font-family: 'Open Sans', sans-serif; }
+body { margin-bottom: 30px; }
+h1 {
+	font-weight: 300;
+	font-size: 36px;
+	line-height: normal;
+	margin: auto;
+	margin-top: 30px;
+	text-align: center;
+}
+h2 {
+	font-weight: 500;
+	font-size: 20px;
+	line-height: normal;
+	margin: auto;
+	margin-bottom: 30px;
+	text-align: center;
+	color: #09F;
+}
+
+.green { color: #3C3; }
+.gray { color: #999; }
+
+.form-horizontal .control-label { padding-top: 0; }
+.form-horizontal.templatemo-payment-form .radio.templatemo-no-padding-top {	padding-top: 0; }
+.control-wrapper {
+	position: relative;
+	padding-left: 30px;
+}
+.control-wrapper label.fa-label {
+	position: absolute;
+	left: 4px;
+	top: 6px;
+}
+.form-group:last-child { margin-bottom: 0; }
+.form-horizontal .control-label { margin-bottom: 10px; }
+.table { margin-bottom: 0; }
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, 
+.table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {
+	vertical-align: middle;
+}
+.templatemo-form-list-container { max-width: 600px; }
+.templatemo-input-icon-container { position: relative; }
+.templatemo-input-icon-container .fa {
+	color: white;
+	position: absolute;
+	left: 10px;
+	top: 10px;
+}
+.templatemo-input-icon-container input, 
+.templatemo-input-icon-container textarea {
+	padding-left: 30px;
+}
+.templatemo-container {
+	background-color: rgba(255,255,255);
+	border: 1px solid #dedede;
+	border-radius: 8px;
+	margin: 0 auto;
+	padding: 30px;
+}
+.templatemo-bg-gray { background-color: #eee; }
+.templatemo-bg-gray h1 { color: rgb(74, 164, 180); }
+.templatemo-bg-image-1 {
+	background-color: rgb(60,60,60);
+	background-image: url(../images/templatemo-bg-1.jpg);	
+}
+.templatemo-bg-image-2 {
+	background-color: rgb(70, 90, 40);
+	background-image: url(../images/templatemo-bg-2.jpg);
+}
+.templatemo-bg-image-1, .templatemo-bg-image-2 {
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-attachment: fixed;	
+}
+.templatemo-bg-image-1, .templatemo-bg-image-2 { background-size: cover; }
+.font-size-small { font-size: 0.8em; }
+.margin-bottom-15 {	margin-bottom: 15px; }
+.margin-bottom-30 {	margin-bottom: 30px; }
+.form-group { margin-bottom: 20px; }
+.form-group a {	line-height: 34px; }
+.fa { font-size: 16px; }
+.fa.login-with {
+	font-size: 30px;
+	margin: 0 5px;
+}
+.fa-medium { font-size: 20px; } 
+.inline-block { display: inline-block; }
+
+
+/*-------------------------------------
+7. contact-form-1
+---------------------------------------*/
+.templatemo-contact-form-1 {
+	background: rgba(255,255,255);
+	border-radius: 8px;
+	color: rgb(0,0,0);
+	width: 100%;
+	margin: 30px auto 0 auto;
+	padding: 0 30px 30px 30px;
+}
+.templatemo-contact-form-1 h1, .templatemo-contact-form-1 p { color: #222; }
+.templatemo-contact-form-1 a {
+	color: #FF9;
+	text-decoration: underline;
+}
+.templatemo-contact-form-1 a:hover { color: rgb(255,255,255); }
+.templatemo-contact-form-1 label { font-weight: 800;}
+.templatemo-contact-form-1 .form-control {
+	font-size: 16px;
+	padding: 10px 12px 10px 35px;
+}
+.templatemo-contact-form-1 input.form-control {	height: 45px; }
+.templatemo-contact-form-1 .fa { font-size: 20px; }
+.templatemo-contact-form-1 .form-control {
+	background-color: rgba(0, 0, 0, 0.3);
+	border: 1px solid rgba(255,255, 255);
+	color: rgba(0, 0, 0);
+	font-weight: 800;
+}
+.templatemo-contact-form-1 .form-control:focus {
+	box-shadow: inset 0 1px 1px rgba(140, 220, 60, 0.7),0 0 10px rgba(140, 220, 60, 0.7);
+}
+.templatemo-contact-form-1 .templatemo-input-icon-container .fa {
+	color: rgb(0,0,0);
+	left: 12px;
+	top: 12px;
+}
+.templatemo-contact-form-1 .templatemo-input-icon-container .fa-envelope-o {
+	font-size: 18px;
+	top: 14px;
+}
+
+/* Validation */
 .text-help {
     color: red;
 }
@@ -7,7 +142,7 @@
 }
 
 .has-success .form-control {
-    border-bottom: 2px solid green;
+    border: 2px solid rgb(5, 218, 5);
 }
 
 .form-group.required .form-label:after {
@@ -15,8 +150,15 @@
     color:red;
   }
 
-form{
-    max-width: 800px !important;
-    align-self: center;
-    margin: auto !important;
-}
+  .form-control::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+	color: grey;
+	opacity: 1; /* Firefox */
+  }
+  
+  .form-control:-ms-input-placeholder { /* Internet Explorer 10-11 */
+	color: grey;
+  }
+  
+  .form-control::-ms-input-placeholder { /* Microsoft Edge */
+	color: grey;
+  }

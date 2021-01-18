@@ -2,7 +2,6 @@
 document.addEventListener("DOMContentLoaded", event => {
 
     // firebase init
-    const app = firebase.app();
     const db = firebase.firestore();
     const storage = firebase.storage();
 
@@ -12,8 +11,7 @@ document.addEventListener("DOMContentLoaded", event => {
     const email = document.querySelector("#email");
     const file = document.querySelector("#file");
     const agreement = document.querySelector('#agreementCheck');
-    const firstName = document.querySelector("#firstName");
-    const lastName = document.querySelector("#lastName");
+    const name = document.querySelector("#fullName");
     const division = document.querySelector("#division");
     const chapter = document.querySelector("#chapter");
     const workplace = document.querySelector("#workplace");
@@ -26,11 +24,11 @@ document.addEventListener("DOMContentLoaded", event => {
     const nextButton = document.querySelector("#next");
     const submitButton = document.querySelector("#submit");
     const editButton = document.querySelector("#edit");
+    const buttons = document.querySelector("#buttons");
 
     // form value init
     var emailValue;
-    var firstNameValue;
-    var lastNameValue;
+    var nameValue;
     var divisionValue;
     var chapterValue;
     var workplaceValue;
@@ -69,14 +67,13 @@ document.addEventListener("DOMContentLoaded", event => {
     submitButton.addEventListener("click", function () {
 
         progress.hidden = !progress.hidden;
+
         emailValue = email.value;
-        firstNameValue = firstName.value;
-        lastNameValue = lastName.value;
+        nameValue = name.value;
         divisionValue = division.value;
         chapterValue = chapter.value;
         workplaceValue = workplace.value;
-
-        window.location.href = "success.html";
+        
         uploadFile();
     })
 
@@ -84,8 +81,7 @@ document.addEventListener("DOMContentLoaded", event => {
 
         db.collection("participants").doc(emailValue).set({
             email: emailValue,
-            firstName: firstNameValue,
-            lastName: lastNameValue,
+            name: nameValue,
             division: divisionValue,
             chapter: chapterValue,
             workplace: workplaceValue,
@@ -131,11 +127,14 @@ document.addEventListener("DOMContentLoaded", event => {
     function toggleForm() {
 
         email.disabled = !email.disabled;
+        name.disabled = !name.disabled;
+        chapter.disabled = !chapter.disabled;
+        workplace.disabled = !workplace.disabled;
+        division.disabled = !division.disabled;
         file.disabled = !file.disabled;
 
         nextButton.hidden = !nextButton.hidden;
-        submitButton.hidden = !submitButton.hidden;
-        editButton.hidden = !editButton.hidden;
+        buttons.hidden = !buttons.hidden;
 
         if (file.files[0]) {
             imgPreview.src = URL.createObjectURL(file.files[0]);;
