@@ -102,10 +102,13 @@ h2 {
 }
 .templatemo-contact-form-1 h1, .templatemo-contact-form-1 p { color: #222; }
 .templatemo-contact-form-1 a {
-	color: #FF9;
-	text-decoration: underline;
+	background: #311b92;
+	font-size: 2rem;
+	width: 100px;
+	margin-right:30px;
+	margin-top: 10px;
 }
-.templatemo-contact-form-1 a:hover { color: rgb(255,255,255); }
+.templatemo-contact-form-1 a:hover { color: #311b92; background: transparent; }
 .templatemo-contact-form-1 label { font-weight: 800;}
 .templatemo-contact-form-1 .form-control {
 	font-size: 16px;
@@ -114,8 +117,7 @@ h2 {
 .templatemo-contact-form-1 input.form-control {	height: 45px; }
 .templatemo-contact-form-1 .fa { font-size: 20px; }
 .templatemo-contact-form-1 .form-control {
-	background-color: rgba(0, 0, 0, 0.3);
-	border: 1px solid rgba(255,255, 255);
+	background-color: rgba(255, 255, 255);
 	color: rgba(0, 0, 0);
 	font-weight: 800;
 }
@@ -146,19 +148,18 @@ h2 {
 }
 
 .form-group.required .form-label:after {
-    content:"*";
     color:red;
   }
 
   .form-control::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-	color: grey;
+	color: rgb(214, 214, 214);
 	opacity: 1; /* Firefox */
   }
   
   .form-control:-ms-input-placeholder { /* Internet Explorer 10-11 */
-	color: grey;
+	color:(214, 214, 214);
   }
   
   .form-control::-ms-input-placeholder { /* Microsoft Edge */
-	color: grey;
+	color:(214, 214, 214);
   }

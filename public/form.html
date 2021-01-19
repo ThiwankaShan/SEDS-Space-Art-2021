@@ -41,7 +41,8 @@
                         <label for="email" class="control-label">Email *</label>
                         <div class="templatemo-input-icon-container">
                             <i class="fa fa-envelope-o"></i>
-                            <input type="email" class="form-control" id="email" data-pristine-maxlength="50" placeholder="jsmith@example.com" required />
+                            <input type="email" class="form-control" id="email" data-pristine-maxlength="50"
+                                placeholder="jsmith@example.com" required />
                         </div>
                     </div>
                 </div>
@@ -52,7 +53,7 @@
                         <div class="templatemo-input-icon-container">
                             <i class="fa fa-user"></i>
                             <input type="text" class="form-control" id="fullName" placeholder="Jhon"
-                    data-pristine-maxlength="50" required>
+                                data-pristine-maxlength="50" required>
                         </div>
                     </div>
                 </div>
@@ -64,7 +65,8 @@
                         <label for="website" class="control-label">SEDS chapter (optional)</label>
                         <div class="templatemo-input-icon-container">
                             <i class="fa fa-globe"></i>
-                            <input type="text" class="form-control" id="chapter" data-pristine-maxlength="50" value="" placeholder="SEDS Sri Lanka">
+                            <input type="text" class="form-control" id="chapter" data-pristine-maxlength="50" value=""
+                                placeholder="SEDS Sri Lanka">
                         </div>
                     </div>
                 </div>
@@ -74,7 +76,8 @@
                         <label for="subject" class="control-label">Organization/School (optional)</label>
                         <div class="templatemo-input-icon-container">
                             <i class="fa fa-info-circle"></i>
-                            <input type="text" class="form-control" id="workplace" data-pristine-maxlength="50" value="" placeholder="Sabaragamuwa University Of Sri Lanka">
+                            <input type="text" class="form-control" id="workplace" data-pristine-maxlength="50" value=""
+                                placeholder="Sabaragamuwa University Of Sri Lanka">
                         </div>
                     </div>
                 </div>
@@ -84,7 +87,8 @@
                         <label for="subject" class="control-label">City</label>
                         <div class="templatemo-input-icon-container">
                             <i class="fa fa-globe"></i>
-                            <input type="text" class="form-control" id="inputCity" data-pristine-maxlength="50" placeholder="Colombo" required>
+                            <input type="text" class="form-control" id="city" data-pristine-maxlength="50"
+                                placeholder="Colombo" required>
                         </div>
                     </div>
                 </div>
@@ -92,7 +96,7 @@
                 <div class="form-group required">
                     <div class="col-md-12">
                         <label for="message" class="control-label">Division *</label>
-                        <div class="templatemo-input-icon-container" >
+                        <div class="templatemo-input-icon-container">
                             <select class="form-control" id="division" style="min-height: 50px;" required>
                                 <option value="1">under 10</option>
                                 <option value="2">Age 11-18</option>
@@ -104,7 +108,7 @@
 
                 <div class="form-group required">
                     <div class="col-md-4">
-                        <div class="templatemo-input-icon-container">
+                        <div class="templatemo-input-icon-container required">
                             <label for="subject" class="control-label">Upload file *</label>
                             <input class="form-control" type="file" id="file" required>
                         </div>
@@ -121,21 +125,28 @@
                     <div class="col-md-12">
                         <div class="checkbox">
                             <label>
-                                <input class="form-check-input" type="radio" id="agreementCheck"> I here by certify that this work is original .
+                                <input class="form-check-input" type="radio" id="agreementCheck"> I here by certify that
+                                this work is original .
                             </label>
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-md-12">
-                        <a class="btn btn-primary pull-right" id="next">Next</a>
-                        <div hidden id="buttons">
+                        <div id="nextDiv">
+                            <a class="btn btn-primary pull-right" id="next">Next</a>
+                        </div>
+
+                        <div hidden id="submitDiv">
+                            <h2 class="text-center">Image preview below</h2>
                             <a class="btn btn-primary pull-right" id="edit">Edit</a>
                             <a class="btn btn-primary pull-right" id="submit">Submit</a>
                         </div>
-                        
+
                     </div>
                 </div>
+                <div class="image-area mt-4"><img id="preview" src=""
+                    class="img-responsive rounded shadow-sm mx-auto" ></div>
             </form>
         </div>
     </div>

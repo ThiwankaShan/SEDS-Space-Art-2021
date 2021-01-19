@@ -77,8 +77,8 @@ a {
 #program,
 #sponsors, 
 #contact, footer {
-    padding-top: 10rem;
-    padding-bottom: 10rem;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
 }
 
 #detail,
@@ -313,6 +313,33 @@ footer {
 #detail .fa {
   color: #F1C01B;
   font-size: 48px;
+}
+
+#detail .sabra-icon {
+  background-image: url('/images/seds-sabra-logo.jpeg');
+  border-radius: 50%;
+  background-size: contain;
+  height: 120px;
+  width: 120px;
+  display: inline-block;
+}
+
+#detail .srilanka-icon {
+  height: 65px;
+  width: 120px;
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url('/images/seds-srilanka-logo.png');
+}
+
+#detail .spaceart-icon {
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  display: inline-block;
+  background-size: contain;
+  background-image: url('/images/seds-spaceart-logo.jpg');
 }
 
 

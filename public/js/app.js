@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", event => {
     const division = document.querySelector("#division");
     const chapter = document.querySelector("#chapter");
     const workplace = document.querySelector("#workplace");
+    const city = document.querySelector("#city");
 
 
     // form actions
@@ -22,9 +23,10 @@ document.addEventListener("DOMContentLoaded", event => {
     const progress = document.querySelector("#Progress");
     const progressBar = document.querySelector("#Progress-bar");
     const nextButton = document.querySelector("#next");
+    const nextDiv = document.querySelector("#nextDiv");
     const submitButton = document.querySelector("#submit");
     const editButton = document.querySelector("#edit");
-    const buttons = document.querySelector("#buttons");
+    const submitDiv = document.querySelector("#submitDiv");
 
     // form value init
     var emailValue;
@@ -33,6 +35,7 @@ document.addEventListener("DOMContentLoaded", event => {
     var chapterValue;
     var workplaceValue;
     var imgUrl;
+    var cityValue;
 
     pristine = new Pristine(form);
 
@@ -73,6 +76,7 @@ document.addEventListener("DOMContentLoaded", event => {
         divisionValue = division.value;
         chapterValue = chapter.value;
         workplaceValue = workplace.value;
+        cityValue = city.value;
         
         uploadFile();
     })
@@ -85,6 +89,7 @@ document.addEventListener("DOMContentLoaded", event => {
             division: divisionValue,
             chapter: chapterValue,
             workplace: workplaceValue,
+            city: cityValue,
             url: imgUrl.toString(),
         })
             .then(function () {
@@ -132,9 +137,10 @@ document.addEventListener("DOMContentLoaded", event => {
         workplace.disabled = !workplace.disabled;
         division.disabled = !division.disabled;
         file.disabled = !file.disabled;
+        city.disabled =!city.disabled;
 
-        nextButton.hidden = !nextButton.hidden;
-        buttons.hidden = !buttons.hidden;
+        nextDiv.hidden = !nextDiv.hidden;
+        submitDiv.hidden = !submitDiv.hidden;
 
         if (file.files[0]) {
             imgPreview.src = URL.createObjectURL(file.files[0]);;
