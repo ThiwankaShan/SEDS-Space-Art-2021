@@ -46,13 +46,20 @@ document.addEventListener("DOMContentLoaded", event => {
         return false;
     }, "File size must be bellow 10MB", 2, false);
 
-    pristine.addValidator(agreement, function () {
+    pristine.addValidator(file, function () {
+        if (file.files[0].type.substring(0,5) == 'image') {
+            return true;
+        }
+        return false;
+    }, "File must be an image type", 2, false);
 
+    pristine.addValidator(agreement, function () {
+        
         if (agreement.checked) {
             return true;
         }
         return false;
-    }, "", 2, false);
+    }, "You must accept our terms and conditions", 2, false);
 
     nextButton.addEventListener('click', function () {
         var valid = pristine.validate();

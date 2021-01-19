@@ -22,6 +22,10 @@ h2 {
 .green { color: #3C3; }
 .gray { color: #999; }
 
+.container{
+	max-width: 900px !important;
+}
+
 .form-horizontal .control-label { padding-top: 0; }
 .form-horizontal.templatemo-payment-form .radio.templatemo-no-padding-top {	padding-top: 0; }
 .control-wrapper {
@@ -78,7 +82,7 @@ h2 {
 .font-size-small { font-size: 0.8em; }
 .margin-bottom-15 {	margin-bottom: 15px; }
 .margin-bottom-30 {	margin-bottom: 30px; }
-.form-group { margin-bottom: 20px; }
+.form-group { margin-bottom: 20px; padding:5px}
 .form-group a {	line-height: 34px; }
 .fa { font-size: 16px; }
 .fa.login-with {
@@ -108,8 +112,11 @@ h2 {
 	margin-right:30px;
 	margin-top: 10px;
 }
+#submit{
+	background: #F1C01B !important;
+}
 .templatemo-contact-form-1 a:hover { color: #311b92; background: transparent; }
-.templatemo-contact-form-1 label { font-weight: 800;}
+.templatemo-contact-form-1 label { font-weight:normal !important;font-size: 16px;}
 .templatemo-contact-form-1 .form-control {
 	font-size: 16px;
 	padding: 10px 12px 10px 35px;
@@ -119,13 +126,12 @@ h2 {
 .templatemo-contact-form-1 .form-control {
 	background-color: rgba(255, 255, 255);
 	color: rgba(0, 0, 0);
-	font-weight: 800;
 }
 .templatemo-contact-form-1 .form-control:focus {
 	box-shadow: inset 0 1px 1px rgba(140, 220, 60, 0.7),0 0 10px rgba(140, 220, 60, 0.7);
 }
 .templatemo-contact-form-1 .templatemo-input-icon-container .fa {
-	color: rgb(0,0,0);
+	color: rgb(54, 54, 54);
 	left: 12px;
 	top: 12px;
 }
@@ -133,10 +139,14 @@ h2 {
 	font-size: 18px;
 	top: 14px;
 }
-
+input[type=file] {
+	display: block;
+	padding:10px !important; 
+}
 /* Validation */
 .text-help {
-    color: red;
+	color: red;
+	margin-left:20px
 }
 
 .has-danger .form-control {
