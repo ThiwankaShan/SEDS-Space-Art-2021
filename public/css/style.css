@@ -266,7 +266,7 @@ footer {
 -----------------------------------------*/
 
 #intro {
-    background: url('../images/intro-bg.jpg') 50% 0 repeat-y fixed;
+    background: url('../images/intro-bg.webp') 50% 0 repeat-y fixed;
     -webkit-background-size: cover;
     background-size: cover;
     background-position: center center;
@@ -288,7 +288,7 @@ footer {
 }
 
 .success{
-  background: url('../images/outro-bg.jpg') 50% 0 repeat-y fixed !important;
+  background: url('../images/outro-bg.webp') 50% 0 repeat-y fixed !important;
 }
 
 
@@ -591,14 +591,14 @@ ul.timeline > li > .timeline-panel:after {
 }
 
 /*---------------------------------------
-    Regsiter section              
+    Guidelines section              
 -----------------------------------------*/
 #register {
-    background-color: #222;
+    background-color:#f9f9f9;
     -webkit-background-size: cover;
     background-size: cover;
     background-position: center center;
-    color: #ffffff;
+    color: #222;
 }
 
 /*---------------------------------------
@@ -711,8 +711,8 @@ ul.timeline > li > .timeline-panel:after {
 
 .work-wrapper:hover { border: 0.5rem solid #01579b; }
 .work-wrapper .fa {
-  color: #888888;
-  font-size: 60px;
+  color: white;
+  font-size: 100px;
   padding-bottom: 40px;
 }
 

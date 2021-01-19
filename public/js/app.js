@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", event => {
     pristine = new Pristine(form);
 
     pristine.addValidator(file, function () {
-        if (file.files[0].size < 10000000) {
+        if (file.files[0].size < 1000000000) {
             return true;
         }
         return false;
@@ -108,14 +108,15 @@ document.addEventListener("DOMContentLoaded", event => {
         task.on('state_changed',
 
             function progess(snapshot) {
-
                 var progressValue = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                console.log(progressValue);
                 progressBar.style.width = progressValue + '%';
             },
             function error(err) {
                 console.log(err);
             },
             function completed() {
+                console.log('file upload success');
                 task.snapshot.ref.getDownloadURL().then(function (downloadURL) {
                     imgUrl = downloadURL;
                     storeDetails();
