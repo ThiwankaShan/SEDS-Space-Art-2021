@@ -18,30 +18,32 @@
       {
         "source": "/form-success",
         "destination": "/success.html"
+      },
+      {
+        "source": "/404",
+        "destination": "/404.html"
       }
     ],
     "redirects": [
       {
-        "source": "/404.html",
-        "destination": "/301",
+        "source": "/index.html",
+        "destination": "/home",
+        "type": 301
+      },
+      {
+        "source": "/form.html",
+        "destination": "/form",
+        "type": 301
+      },
+      {
+        "source": "/success.html",
+        "destination": "/form-success",
         "type": 301
       },
       {
         "source": "/404.html",
         "destination": "/404",
-        "type": 404
-      },
-      {
-        "source": "/index.html",
-        "destination":"/home" 
-      },
-      {
-        "source": "/form.html",
-        "destination": "/form" 
-      },
-      {
-        "source": "/success.html",
-        "destination": "/form-success"  
+        "type": 301
       }
     ]
   }
