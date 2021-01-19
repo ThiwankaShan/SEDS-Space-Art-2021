@@ -671,7 +671,7 @@ ul.timeline > li > .timeline-panel:after {
 -----------------------------------------*/
 #venue {
     text-align: center;
-    background: url('../images/venue-bg.jpg') 50% 0 repeat-y fixed;
+    background: url('../images/venue-bg.webp') 50% 0 repeat-y fixed;
     background-size: cover;
     background-position: center center;
     padding-top: 7rem;

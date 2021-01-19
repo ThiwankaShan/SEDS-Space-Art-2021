@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", event => {
     pristine = new Pristine(form);
 
     pristine.addValidator(file, function () {
-        if (file.files[0].size < 1000000000) {
+        if (file.files[0].size < 10000000) {
             return true;
         }
         return false;
