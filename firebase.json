@@ -22,6 +22,16 @@
     ],
     "redirects": [
       {
+        "source": "/404.html",
+        "destination": "/301",
+        "type": 301
+      },
+      {
+        "source": "/404.html",
+        "destination": "/404",
+        "type": 404
+      },
+      {
         "source": "/index.html",
         "destination":"/home" 
       },
