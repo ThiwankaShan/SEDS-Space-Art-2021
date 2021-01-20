@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", event => {
 
     function storeDetails() {
 
-        db.collection("participants").doc(emailValue).set({
+        db.collection("participants").doc(emailValue+Date.now()).set({
             email: emailValue,
             name: nameValue,
             division: divisionValue,
@@ -110,7 +110,7 @@ document.addEventListener("DOMContentLoaded", event => {
 
     function uploadFile() {
 
-        var task = storage.ref("arts/" + emailValue).put(file.files[0]);
+        var task = storage.ref("arts/"+emailValue+Date.now()).put(file.files[0]);
 
         task.on('state_changed',
 
