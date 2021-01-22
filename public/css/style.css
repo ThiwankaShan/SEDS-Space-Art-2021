@@ -389,6 +389,15 @@ footer {
     padding-bottom: 22px;
 }
 
+.judge-fa li a{
+  font-size: 24px !important;
+  color:  #311b92 !important;
+}
+
+.judge-fa li a:hover{
+  color:   #F1C01B !important;
+}
+
 
 
 /*---------------------------------------
@@ -689,7 +698,7 @@ ul.timeline > li > .timeline-panel:after {
   padding-bottom: 100px;
 }
 .tm-work-h3 {
-  color:  #F1C01B;
+  color:  whitesmoke;
   font-size: 20px;
   font-weight: bold;
   letter-spacing: 1px;
@@ -711,7 +720,7 @@ ul.timeline > li > .timeline-panel:after {
 
 .work-wrapper:hover { border: 0.5rem solid #01579b; }
 .work-wrapper .fa {
-  color: white;
+  color: #FED130;
   font-size: 100px;
   padding-bottom: 40px;
 }
