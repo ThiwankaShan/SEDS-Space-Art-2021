@@ -49,6 +49,8 @@ document.addEventListener("DOMContentLoaded", event => {
     /*##################
     file validations
     ###################*/
+
+    // file 1 
     pristineSubmission.addValidator(file[0], function () {
         if (file[0].files[0].size < 10000000) {
             return true;
@@ -63,6 +65,7 @@ document.addEventListener("DOMContentLoaded", event => {
         return false;
     }, "File must be an image type", 2, false);
 
+    // file 2
     pristineSubmission.addValidator(file[1], function () {
         if(file[1].files[0]){
             if (file[1].files[0].size < 10000000) {
@@ -87,6 +90,19 @@ document.addEventListener("DOMContentLoaded", event => {
         return false;
     }, "File must be an image type", 2, false);
 
+    pristineSubmission.addValidator(file[1], function () {
+        if(topic[1].value){
+            if (file[1].files[0]) {
+                return true;
+            }
+        }else{
+            return true;
+        }
+        
+        return false;
+    }, "This field is required", 2, false);
+
+    // file 3 
     pristineSubmission.addValidator(file[2], function () {
         if (file[2].files[0]){
             if (file[2].files[0].size < 10000000) {
@@ -111,12 +127,22 @@ document.addEventListener("DOMContentLoaded", event => {
         return false;
     }, "File must be an image type", 2, false);
 
+    pristineSubmission.addValidator(file[2], function () {
+        if(topic[2].value){
+            if (file[2].files[0]) {
+                return true;
+            }
+        }else{
+            return true;
+        }
+        
+        return false;
+    }, "This field is required", 2, false);
+
     /*##################
     topics validations
     ###################*/
     pristineSubmission.addValidator(topic[1], function () {
-        console.log("debug here");
-        console.log(topic[1].value);
         if (file[1].files[0]){
             if (topic[1].value) {
                 return true;
