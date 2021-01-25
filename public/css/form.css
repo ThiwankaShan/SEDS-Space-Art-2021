@@ -173,3 +173,13 @@ input[type=file] {
   .form-control::-ms-input-placeholder { /* Microsoft Edge */
 	color:(214, 214, 214);
   }
+
+  textarea.form-control {
+    min-height: 100px;
+}
+
+.submission-area{
+	background-color: #F6F7F9 !important;
+	width: 100% !important;
+	margin-top:10px !important;
+}
