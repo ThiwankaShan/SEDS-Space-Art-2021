@@ -20,6 +20,10 @@
         "destination": "/success.html"
       },
       {
+        "source": "/131321download",
+        "destination": "/download.html"
+      },
+      {
         "source": "/404",
         "destination": "/404.html"
       }
@@ -38,6 +42,11 @@
       {
         "source": "/success.html",
         "destination": "/form-success",
+        "type": 301
+      },
+      {
+        "source": "/download.html",
+        "destination": "/131321download",
         "type": 301
       },
       {

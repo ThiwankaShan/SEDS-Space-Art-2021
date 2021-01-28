@@ -44,13 +44,12 @@ document.addEventListener("DOMContentLoaded", event => {
     pristineDetails = new Pristine(detailsForm);
     pristineSubmission = new Pristine(submissionForm);
 
-    // Custome validations
+    /*==========================
+    FILE VALIDATION
+    ============================*/
 
-    /*##################
-    file validations
-    ###################*/
+    //===================   FILE 1  ====================================== 
 
-    // file 1 
     pristineSubmission.addValidator(file[0], function () {
         if (file[0].files[0].size < 10000000) {
             return true;
@@ -65,110 +64,121 @@ document.addEventListener("DOMContentLoaded", event => {
         return false;
     }, "File must be an image type", 2, false);
 
-    // file 2
+
+
+    //===================   FILE 2  =======================================
+
     pristineSubmission.addValidator(file[1], function () {
-        if(file[1].files[0]){
+        if (file[1].files[0]) {
             if (file[1].files[0].size < 10000000) {
                 return true;
             }
-        }else{
+        } else {
             return true;
         }
-        
+
         return false;
     }, "File size must be bellow 10MB", 2, false);
 
     pristineSubmission.addValidator(file[1], function () {
-        if(file[1].files[0]){
+        if (file[1].files[0]) {
             if (file[1].files[0].type.substring(0, 5) == 'image') {
                 return true;
             }
-        }else{
+        } else {
             return true;
         }
-        
+
         return false;
     }, "File must be an image type", 2, false);
 
     pristineSubmission.addValidator(file[1], function () {
-        if(topic[1].value){
+        if (topic[1].value) {
             if (file[1].files[0]) {
                 return true;
             }
-        }else{
+        } else {
             return true;
         }
-        
+
         return false;
     }, "This field is required", 2, false);
 
-    // file 3 
+
+
+    //=======================   FILE 3  ==========================================
+
     pristineSubmission.addValidator(file[2], function () {
-        if (file[2].files[0]){
+        if (file[2].files[0]) {
             if (file[2].files[0].size < 10000000) {
                 return true;
             }
-        }else{
+        } else {
             return true;
         }
-        
+
         return false;
     }, "File size must be bellow 10MB", 2, false);
 
     pristineSubmission.addValidator(file[2], function () {
-        if (file[2].files[0]){
+        if (file[2].files[0]) {
             if (file[2].files[0].type.substring(0, 5) == 'image') {
                 return true;
             }
-        }else{
+        } else {
             return true;
         }
-        
+
         return false;
     }, "File must be an image type", 2, false);
 
     pristineSubmission.addValidator(file[2], function () {
-        if(topic[2].value){
+        if (topic[2].value) {
             if (file[2].files[0]) {
                 return true;
             }
-        }else{
+        } else {
             return true;
         }
-        
+
         return false;
     }, "This field is required", 2, false);
 
-    /*##################
-    topics validations
-    ###################*/
+
+
+    /*======================
+    TOPICS VALIDATION
+    ========================*/
+
     pristineSubmission.addValidator(topic[1], function () {
-        if (file[1].files[0]){
+        if (file[1].files[0]) {
             if (topic[1].value) {
                 return true;
             }
-        }else{
+        } else {
             return true;
         }
-        
+
         return false;
     }, "This fiel is required", 2, false);
 
     pristineSubmission.addValidator(topic[2], function () {
-        if (file[2].files[0]){
+        if (file[2].files[0]) {
             if (topic[2].value) {
                 return true;
             }
-        }else{
+        } else {
             return true;
         }
-        
+
         return false;
     }, "This fiel is required", 2, false);
 
-    /*##################
-    agreement validations
-    ###################*/
+
+
+    /*==============================
+    AGREEMENT VALIDATION
+    =================================*/
 
     pristineSubmission.addValidator(agreement, function () {
 
@@ -179,7 +189,12 @@ document.addEventListener("DOMContentLoaded", event => {
     }, "You must accept our terms and conditions", 2, false);
 
 
-    // Button functions
+
+
+    /*================================
+    BUTTON FUNCTIONS
+    =================================== */
+
     nextButton.addEventListener('click', function () {
         var valid = pristineDetails.validate();
         if (valid) {
@@ -192,6 +207,39 @@ document.addEventListener("DOMContentLoaded", event => {
         toggleDetailsForm();
 
     });
+
+    submitButton.addEventListener("click", async function () {
+
+        console.log("sumit button");
+
+        emailValue = email.value;
+        nameValue = name.value;
+        divisionValue = division.value;
+        chapterValue = chapter.value;
+        workplaceValue = workplace.value;
+        cityValue = city.value;
+        themeValue = theme.value;
+
+        var valid = pristineSubmission.validate();
+        if (valid) {
+            console.log("validation passed");
+            progress[0].hidden = !progress[0].hidden;
+            progress[1].hidden = !progress[1].hidden;
+            progress[2].hidden = !progress[2].hidden;
+
+            for (var i = 0; i < 3; i++) {
+                if (file[i].files[0]) {
+                    await uploadFile(file[i], progressBar[i], topic[i].value, description[i].value);
+                    console.log(topic[i].value);
+                    console.log(description[i].value);
+                }
+
+            }
+            window.location.href = "success.html";
+        }
+    })
+
+    // ======================   IMAGE PREVIEWS  ========================================
 
     file[0].addEventListener('change', function () {
         console.log("image preview onChange fired");
@@ -235,63 +283,60 @@ document.addEventListener("DOMContentLoaded", event => {
 
     });
 
-    submitButton.addEventListener("click", async function () {
+    
 
-        console.log("sumit button");
-
-        emailValue = email.value;
-        nameValue = name.value;
-        divisionValue = division.value;
-        chapterValue = chapter.value;
-        workplaceValue = workplace.value;
-        cityValue = city.value;
-        themeValue = theme.value;
-
-        var valid = pristineSubmission.validate();
-        if (valid) {
-            console.log("validation passed");
-            progress[0].hidden = !progress[0].hidden;
-            progress[1].hidden = !progress[1].hidden;
-            progress[2].hidden = !progress[2].hidden;
-
-            for(var i=0; i<3; i++){
-                if (file[i].files[0]){
-                    await uploadFile(file[i], progressBar[i],topic[i].value,description[i].value);
-                    console.log(topic[i].value);
-                    console.log(description[i].value);
-                }
-                
-            }
-            window.location.href = "success.html";
+    function storeDetails(topicValue, descriptionValue) {
+        console.log(themeValue);
+        if (themeValue != "Open") {
+            return new Promise((resolve, _reject) => {
+                db.collection("participants").doc(emailValue + Date.now()).set({
+                    email: emailValue,
+                    name: nameValue,
+                    division: divisionValue,
+                    chapter: chapterValue,
+                    workplace: workplaceValue,
+                    city: cityValue,
+                    topic: topicValue,
+                    theme: themeValue,
+                    description: descriptionValue,
+                    url: imgUrl.toString(),
+                })
+                    .then(function () {
+                        console.log("Document successfully written!");
+                        resolve("success");
+                    })
+                    .catch(function (error) {
+                        console.error("Error writing document: ", error);
+                        resolve("Error");
+                    })
+            });
+        } else {
+            return new Promise((resolve, _reject) => {
+                db.collection("gallery").doc(emailValue + Date.now()).set({
+                    email: emailValue,
+                    name: nameValue,
+                    division: divisionValue,
+                    chapter: chapterValue,
+                    workplace: workplaceValue,
+                    city: cityValue,
+                    topic: topicValue,
+                    theme: themeValue,
+                    description: descriptionValue,
+                    url: imgUrl.toString(),
+                })
+                    .then(function () {
+                        console.log("Document successfully written!");
+                        resolve("success");
+                    })
+                    .catch(function (error) {
+                        console.error("Error writing document: ", error);
+                        resolve("Error");
+                    })
+            });
         }
-    })
-
-    function storeDetails(topicValue,descriptionValue) {
-        return new Promise((resolve, _reject) => {
-            db.collection("participants").doc(emailValue + Date.now()).set({
-                email: emailValue,
-                name: nameValue,
-                division: divisionValue,
-                chapter: chapterValue,
-                workplace: workplaceValue,
-                city: cityValue,
-                topic: topicValue,
-                theme: themeValue,
-                description: descriptionValue,
-                url: imgUrl.toString(),
-            })
-                .then(function () {
-                    console.log("Document successfully written!");
-                    resolve("success");         
-                })
-                .catch(function (error) {
-                    console.error("Error writing document: ", error);
-                    resolve("Error");
-                })
-        });
     }
 
-    function uploadFile(file, progressBar,topic,description) {
+    function uploadFile(file, progressBar, topic, description) {
         return new Promise((resolve, _reject) => {
             var task = storage.ref("arts/" + emailValue + Date.now()).put(file.files[0]);
 
@@ -310,17 +355,19 @@ document.addEventListener("DOMContentLoaded", event => {
                     console.log('file upload success');
                     task.snapshot.ref.getDownloadURL().then(async function (downloadURL) {
                         imgUrl = downloadURL;
-                        await storeDetails(topic,description);
+                        await storeDetails(topic, description);
                         resolve("Completed");
                     });
-                    
+
                 }
 
             );
         });
     }
 
-    // toggle between review and edit screen
+
+
+    //==========    TOGGLE BETWEEN 2 FORMS  ====================
     function toggleDetailsForm() {
 
         submissionForm.hidden = !submissionForm.hidden;
