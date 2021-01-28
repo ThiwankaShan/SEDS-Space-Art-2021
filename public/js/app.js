@@ -284,9 +284,10 @@ document.addEventListener("DOMContentLoaded", event => {
     });
 
     
-
+    /*================================
+        FIREBASE FUNCTIONS
+    ==================================*/
     function storeDetails(topicValue, descriptionValue) {
-        console.log(themeValue);
         if (themeValue != "Open") {
             return new Promise((resolve, _reject) => {
                 db.collection("participants").doc(emailValue + Date.now()).set({
