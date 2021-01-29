@@ -45,10 +45,10 @@ document.addEventListener("DOMContentLoaded", event => {
     pristineSubmission = new Pristine(submissionForm);
 
     /*==========================
-    FILE VALIDATION
+        FILE VALIDATION
     ============================*/
 
-    //===================   FILE 1  ====================================== 
+    //===================   FILE 1 VALIDATION ====================================== 
 
     pristineSubmission.addValidator(file[0], function () {
         if (file[0].files[0].size < 10000000) {
@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", event => {
 
 
 
-    //===================   FILE 2  =======================================
+    //===================   FILE 2 VALIDATION =======================================
 
     pristineSubmission.addValidator(file[1], function () {
         if (file[1].files[0]) {
@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", event => {
 
 
 
-    //=======================   FILE 3  ==========================================
+    //=======================   FILE 3 VALIDATION ==========================================
 
     pristineSubmission.addValidator(file[2], function () {
         if (file[2].files[0]) {
@@ -147,7 +147,7 @@ document.addEventListener("DOMContentLoaded", event => {
 
 
     /*======================
-    TOPICS VALIDATION
+        TOPICS VALIDATION
     ========================*/
 
     pristineSubmission.addValidator(topic[1], function () {
@@ -177,7 +177,7 @@ document.addEventListener("DOMContentLoaded", event => {
 
 
     /*==============================
-    AGREEMENT VALIDATION
+        AGREEMENT VALIDATION
     =================================*/
 
     pristineSubmission.addValidator(agreement, function () {
@@ -192,7 +192,7 @@ document.addEventListener("DOMContentLoaded", event => {
 
 
     /*================================
-    BUTTON FUNCTIONS
+        BUTTON FUNCTIONS
     =================================== */
 
     nextButton.addEventListener('click', function () {
@@ -239,7 +239,11 @@ document.addEventListener("DOMContentLoaded", event => {
         }
     })
 
-    // ======================   IMAGE PREVIEWS  ========================================
+    /* ==========================  
+        IMAGE PREVIEWS  
+    ============================= */
+
+    //=======================   FILE 1 PREVIEW  ========================================
 
     file[0].addEventListener('change', function () {
         console.log("image preview onChange fired");
@@ -255,6 +259,8 @@ document.addEventListener("DOMContentLoaded", event => {
 
     });
 
+    //=======================   FILE 2 PREVIEW  ========================================
+
     file[1].addEventListener('change', function () {
         console.log("image preview onChange fired");
         if (file[1].files[0]) {
@@ -268,6 +274,8 @@ document.addEventListener("DOMContentLoaded", event => {
         }
 
     });
+
+    //=======================   FILE 3 PREVIEW  ========================================
 
     file[2].addEventListener('change', function () {
         console.log("image preview onChange fired");
@@ -287,55 +295,43 @@ document.addEventListener("DOMContentLoaded", event => {
     /*================================
         FIREBASE FUNCTIONS
     ==================================*/
+
+    //====================  FIRESTORE WRITES    ================================
+
     function storeDetails(topicValue, descriptionValue) {
+        //THIS FUNCTION GET CALLED FROM UPLOAD FILE FUNCTION AFTER A SUCCESSFULL FILE UPLOAD
+        
         if (themeValue != "Open") {
-            return new Promise((resolve, _reject) => {
-                db.collection("participants").doc(emailValue + Date.now()).set({
-                    email: emailValue,
-                    name: nameValue,
-                    division: divisionValue,
-                    chapter: chapterValue,
-                    workplace: workplaceValue,
-                    city: cityValue,
-                    topic: topicValue,
-                    theme: themeValue,
-                    description: descriptionValue,
-                    url: imgUrl.toString(),
-                })
-                    .then(function () {
-                        console.log("Document successfully written!");
-                        resolve("success");
-                    })
-                    .catch(function (error) {
-                        console.error("Error writing document: ", error);
-                        resolve("Error");
-                    })
-            });
+            var myCollection = "participants";
         } else {
-            return new Promise((resolve, _reject) => {
-                db.collection("gallery").doc(emailValue + Date.now()).set({
-                    email: emailValue,
-                    name: nameValue,
-                    division: divisionValue,
-                    chapter: chapterValue,
-                    workplace: workplaceValue,
-                    city: cityValue,
-                    topic: topicValue,
-                    theme: themeValue,
-                    description: descriptionValue,
-                    url: imgUrl.toString(),
-                })
-                    .then(function () {
-                        console.log("Document successfully written!");
-                        resolve("success");
-                    })
-                    .catch(function (error) {
-                        console.error("Error writing document: ", error);
-                        resolve("Error");
-                    })
-            });
+            var myCollection = "gallery";
         }
+
+        return new Promise((resolve, _reject) => {
+            db.collection(myCollection).doc(emailValue + Date.now()).set({
+                email: emailValue,
+                name: nameValue,
+                division: divisionValue,
+                chapter: chapterValue,
+                workplace: workplaceValue,
+                city: cityValue,
+                topic: topicValue,
+                theme: themeValue,
+                description: descriptionValue,
+                url: imgUrl.toString(),
+            })
+                .then(function () {
+                    console.log("Document successfully written!");
+                    resolve("success");
+                })
+                .catch(function (error) {
+                    console.error("Error writing document: ", error);
+                    resolve("Error");
+                })
+        });
     }
+
+    //====================  STORAGE WRITES    ================================
 
     function uploadFile(file, progressBar, topic, description) {
         return new Promise((resolve, _reject) => {
