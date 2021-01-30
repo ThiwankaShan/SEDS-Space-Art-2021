@@ -19,6 +19,7 @@
     <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
         integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
     <link href="css/form.css" rel="stylesheet" type="text/css">
 
     <!-----------------------------SCRITPS------------------------------------------------------------------------------->
@@ -33,9 +34,10 @@
                 <div class="form-group">
                     <div class="col-md-12">
                         <h1 class="margin-bottom-15">SPACE ART 2021 Submission form</h1>
-                        <p>One contestant can submit more than one to three artworks, each and every one of them should
-                            be submitted under one theme only.<br> If a contestant submit more than 3 artworks the last 3
-                            submissions will be accounted for
+                        <p>One contestant can submit either
+                            one or a maximum of three artworks, but only one artwork should be submitted under
+                            one theme.<br> If a contestant submit more than 1 artwork on same theme last
+                            submission will be accounted for
                             evaluation.
                         </p>
                         <h5 class="text-center">Page 1 of 2</h5>
@@ -126,32 +128,35 @@
                     <div class="col-md-12">
                         <h1 class="margin-bottom-15">SPACE ART 2021 Submission form</h1>
                         <p>One contestant can submit more than one to three artworks, each and every one of them should
-                            be submitted under one theme only.<br> If a contestant submit more than 3 artworks the last 3
+                            be submitted under one theme only.<br> If a contestant submit more than 3 artworks the last
+                            3
                             submissions will be accounted for
                             evaluation.
                         </p>
                         <h5 class="text-center">Page 2 of 2</h5>
                     </div>
                 </div>
-
-                <div class="form-group required">
-                    <div class="col-md-12">
-                        <label for="message" class="control-label">Theme *</label>
-                        <p>The open theme will not be considered for evaluation</p>
-                        <div class="templatemo-input-icon-container">
-                            <select class="form-control" id="theme" style="min-height: 50px;" required>
-                                <option value="First Contact">First Contact</option>
-                                <option value="The Next Stop">The Next Stop</option>
-                                <option value="Cosmos 2222">Cosmos 2222</option>
-                                <option value="Open">Open</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
                 <hr>
                 <!---------------------------------Submission AREA 1 ---------------------------------------------------->
                 <h2>Art work 1 (required)</h2>
                 <div class="submission-area">
+
+                    <div class="form-group required">
+                        <div class="col-md-12">
+                            <label for="message" class="control-label">Theme *</label>
+                            <p>The open theme will not be considered for evaluation</p>
+                            <div class="templatemo-input-icon-container">
+                                <select class="form-control" class="themes" id="theme" style="min-height: 50px;"
+                                    required>
+                                    <option value="Open">Open</option>
+                                    <option value="First Contact">First Contact</option>
+                                    <option value="The Next Stop">The Next Stop</option>
+                                    <option value="Cosmos 2222">Cosmos 2222</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="form-group required">
                         <div class="col-md-12">
                             <label for="name" class="control-label">Topic *</label>
@@ -188,6 +193,24 @@
                 <!---------------------------------Submission AREA 2 ---------------------------------------------------->
                 <h2>Art work 2 (optional)</h2>
                 <div class="submission-area">
+
+                    <div class="form-group required">
+                        <div class="col-md-12">
+                            <label for="message" class="control-label">Theme *</label>
+                            <p>The open theme will not be considered for evaluation</p>
+                            <div class="templatemo-input-icon-container">
+                                <select class="form-control" class="themes" id="theme" style="min-height: 50px;"
+                                    required>
+                                    <option value="Open">Open</option>
+                                    <option value="First Contact">First Contact</option>
+                                    <option value="The Next Stop">The Next Stop</option>
+                                    <option value="Cosmos 2222">Cosmos 2222</option>
+
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="form-group required">
                         <div class="col-md-12">
                             <label for="name" class="control-label">Topic* </label>
@@ -224,6 +247,24 @@
                 <!---------------------------------Submission AREA 3 ---------------------------------------------------->
                 <h2>Art work 3 (optional)</h2>
                 <div class="submission-area">
+
+                    <div class="form-group required">
+                        <div class="col-md-12">
+                            <label for="message" class="control-label">Theme *</label>
+                            <p>The open theme will not be considered for evaluation</p>
+                            <div class="templatemo-input-icon-container">
+                                <select class="form-control" class="themes" id="theme" style="min-height: 50px;"
+                                    required>
+                                    <option value="Open">Open</option>
+                                    <option value="First Contact">First Contact</option>
+                                    <option value="The Next Stop">The Next Stop</option>
+                                    <option value="Cosmos 2222">Cosmos 2222</option>
+
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="form-group">
                         <div class="col-md-12">
                             <label for="name" class="control-label">Topic* </label>
@@ -233,7 +274,6 @@
                             </div>
                         </div>
                     </div>
-
 
                     <div class="form-group">
 

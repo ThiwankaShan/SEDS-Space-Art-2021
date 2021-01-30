@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", event => {
     const chapter = document.querySelector("#chapter");
     const workplace = document.querySelector("#workplace");
     const city = document.querySelector("#city");
-    const theme = document.querySelector("#theme");
+    const theme = document.querySelectorAll(".themes");
     const topic = document.querySelectorAll(".topic");
     const description = document.querySelectorAll(".description");
 
@@ -218,7 +218,7 @@ document.addEventListener("DOMContentLoaded", event => {
         chapterValue = chapter.value;
         workplaceValue = workplace.value;
         cityValue = city.value;
-        themeValue = theme.value;
+       
 
         var valid = pristineSubmission.validate();
         if (valid) {
@@ -229,7 +229,7 @@ document.addEventListener("DOMContentLoaded", event => {
 
             for (var i = 0; i < 3; i++) {
                 if (file[i].files[0]) {
-                    await uploadFile(file[i], progressBar[i], topic[i].value, description[i].value);
+                    await uploadFile(file[i], progressBar[i], topic[i].value, description[i].value,theme[i].value);
                     console.log(topic[i].value);
                     console.log(description[i].value);
                 }
@@ -298,7 +298,7 @@ document.addEventListener("DOMContentLoaded", event => {
 
     //====================  FIRESTORE WRITES    ================================
 
-    function storeDetails(topicValue, descriptionValue) {
+    function storeDetails(topicValue, descriptionValue,themeValue) {
         //THIS FUNCTION GET CALLED FROM UPLOAD FILE FUNCTION AFTER A SUCCESSFULL FILE UPLOAD
         
         if (themeValue != "Open") {
@@ -333,7 +333,7 @@ document.addEventListener("DOMContentLoaded", event => {
 
     //====================  STORAGE WRITES    ================================
 
-    function uploadFile(file, progressBar, topic, description) {
+    function uploadFile(file, progressBar, topic, description,theme) {
         return new Promise((resolve, _reject) => {
             var task = storage.ref("arts/" + emailValue + Date.now()).put(file.files[0]);
 
@@ -352,7 +352,7 @@ document.addEventListener("DOMContentLoaded", event => {
                     console.log('file upload success');
                     task.snapshot.ref.getDownloadURL().then(async function (downloadURL) {
                         imgUrl = downloadURL;
-                        await storeDetails(topic, description);
+                        await storeDetails(topic, description,theme);
                         resolve("Completed");
                     });
 
@@ -371,4 +371,20 @@ document.addEventListener("DOMContentLoaded", event => {
         detailsForm.hidden = !detailsForm.hidden;
 
     }
+
+    
 })
+
+$(document).ready(function(){
+    $('select').on('change', function(event ) {
+        //restore previously selected value
+        var prevValue = $(this).data('previous');
+        $('select').not(this).find('option[value="'+prevValue+'"]').show();
+        //hide option selected                
+        var value = $(this).val();
+        //update previously selected data
+        $(this).data('previous',value);
+        $('select').not(this).find('option[value="'+value+'"]').hide();
+    });
+ });
+

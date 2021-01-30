@@ -730,6 +730,7 @@ ul.timeline > li > .timeline-panel:after {
 -----------------------------------------*/
 #sponsors img {
   margin-top: 18px;
+  border:2px solid grey;
 }
 
 
