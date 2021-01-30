@@ -39,7 +39,6 @@ document.addEventListener("DOMContentLoaded", event => {
     var workplaceValue;
     var imgUrl;
     var cityValue;
-    var themeValue;
 
     pristineDetails = new Pristine(detailsForm);
     pristineSubmission = new Pristine(submissionForm);
@@ -210,8 +209,6 @@ document.addEventListener("DOMContentLoaded", event => {
 
     submitButton.addEventListener("click", async function () {
 
-        console.log("sumit button");
-
         emailValue = email.value;
         nameValue = name.value;
         divisionValue = division.value;
@@ -222,7 +219,6 @@ document.addEventListener("DOMContentLoaded", event => {
 
         var valid = pristineSubmission.validate();
         if (valid) {
-            console.log("validation passed");
             progress[0].hidden = !progress[0].hidden;
             progress[1].hidden = !progress[1].hidden;
             progress[2].hidden = !progress[2].hidden;
@@ -230,8 +226,7 @@ document.addEventListener("DOMContentLoaded", event => {
             for (var i = 0; i < 3; i++) {
                 if (file[i].files[0]) {
                     await uploadFile(file[i], progressBar[i], topic[i].value, description[i].value,theme[i].value);
-                    console.log(topic[i].value);
-                    console.log(description[i].value);
+                    
                 }
 
             }
@@ -376,7 +371,7 @@ document.addEventListener("DOMContentLoaded", event => {
 
 $(document).ready(function(){
     $('select').on('change', function(event ) {
-        console.log("This got fired");
+
         //restore previously selected value
         var prevValue = $(this).data('previous');
         $('select').not(this).find('option[value="'+prevValue+'"]').show();
