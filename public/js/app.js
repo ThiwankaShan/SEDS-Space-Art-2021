@@ -371,12 +371,12 @@ document.addEventListener("DOMContentLoaded", event => {
         detailsForm.hidden = !detailsForm.hidden;
 
     }
-
     
 })
 
 $(document).ready(function(){
     $('select').on('change', function(event ) {
+        console.log("This got fired");
         //restore previously selected value
         var prevValue = $(this).data('previous');
         $('select').not(this).find('option[value="'+prevValue+'"]').show();
@@ -387,4 +387,6 @@ $(document).ready(function(){
         $('select').not(this).find('option[value="'+value+'"]').hide();
     });
  });
+
+
 
