@@ -183,3 +183,9 @@ input[type=file] {
 	width: 100% !important;
 	margin-top:10px !important;
 }
+
+#rules{
+	background-color: transparent !important;
+	font-size: 14px;
+	font-weight: 700;
+}
